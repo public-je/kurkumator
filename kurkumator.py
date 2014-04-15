@@ -4,6 +4,7 @@ from random import choice
 import re
 import os
 import readline
+import sys
 
 def kurkum(msg, file):
 	result = ''
@@ -31,6 +32,7 @@ if __name__ == "__main__":
 		try:
 			msg = unicode(raw_input(),'utf-8')
 			print (kurkum(msg, words))
-		except(KeyboardInterrupt):
-			print ('quitin\n')
+		except(EOFError):
+			print ('quiting')
+			sys.exit()
 
