@@ -3,6 +3,7 @@
 from random import choice
 import re
 import os
+import readline
 
 def kurkum(msg, file):
 	result = ''
@@ -23,10 +24,13 @@ def kurkum(msg, file):
 	return result + u'1/' + str(variation)
 
 if __name__ == "__main__":
-	f = open(os.getcwd() + os.sep + 'words.txt', 'r')
+	f = open(os.getcwd() + os.sep + '100kwords.txt', 'r')
 	words = f.read().decode('utf-8')
 	regex = re.compile(ur'[а-яёА-Яa-zA-Z]+')
 	while True:
-		msg = unicode(raw_input(),'utf-8')
-		print kurkum(msg, words)
+		try:
+			msg = unicode(raw_input(),'utf-8')
+			print (kurkum(msg, words))
+		except(KeyboardInterrupt):
+			print ('quitin\n')
 
